@@ -1,5 +1,5 @@
-# Demo Rover
-The Demo Rover is a high-performance RC car, created through the collaboration between two companies, Kvaser and CanEduDev.
+# The CanEduDev Demo Rover
+The Demo Rover is a high-performance RC car created by [CanEduDev](https://www.canedudev.com/), a side venture of Kvaser.
 
 <div style="display: flex; justify-content: space-around;">
   <img src="./docs/rover_img_front.jpeg" alt="Rover Image Front" style="width: 45%;">
@@ -27,4 +27,4 @@ The Demo Rover can reach speeds of up to 40 km/h. This high performance allows f
 [Demo Rover web page](https://www.canedudev.com/product/demo-rover/)
 
 # Integrating Demo Rover and Autoware
-[Integrating Demo Rover and Autoware](./docs/Integrate.md)
+See [Integrating Demo Rover and Autoware](./docs/Integrate.md)
