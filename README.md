@@ -80,7 +80,7 @@ If you have already installed the NVIDIA driver, it is recommended to edit the a
 > [!WARNING]
 > This script includes the installation of NVIDIA drivers, CUDA, cudnn and TensorRT. Please be careful if you have already installed them, as there might be version conflicts.
 
-step 3: Construct the workspace and clone repojitories
+step 3: Construct the workspace and clone repositories
 ```bash
 cd ~/cd canedudev_rover_autoware
 mkdir src
