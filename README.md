@@ -69,7 +69,7 @@ cd ~/canedudev_rover_autoware
 
 step 2: Install dependencies for Autoware:  
 
-If you have already installed the Nvidia driver, it is recommended to edit the amd64.env file and specify the version of Cuda manually.
+If you have already installed the NVIDIA driver, it is recommended to edit the amd64.env file and specify the version of CUDA manually.
 ```bash
 #Install all dependencies
 ./setup-dev-env.sh
