@@ -38,6 +38,7 @@ The URL below shows how to integrate Autoware.
 ### 1. Requirements
 To integrate Autoware and Demo Rover, you will need:
 - CAN adapter
+- Kvaser SDK
 - Sensors
     - 3D Lidar sensor
     - (option) Camera
@@ -60,14 +61,36 @@ You have two options for installing Autoware:
 (Source Installation)  
 setup instructions provided below are specifically for source installation. We have used a Kvaser USBcan Pro 2xHS v2, Velodyne VLP-32 LiDAR and an Xsens IMU in our setup.  
 
-Step 1: Clone our repository:
+step 1:install Kvaser SDK   
+
+1. install Kvaser SDK [here](https://kvaser.com/single-download/?download_id=47184)
+
+```bash
+cd ~/Downloads
+tar xvzf linuxcan_5_45_724.tar.gz 
+cd linuxcan
+make
+sudo make install 
+```
+
+2. install Linux SDK Library [here](https://kvaser.com/single-download/?download_id=47184)
+
+```shell
+cd ~/Downloads
+tar xvzf kvlibsdk_5_45_724.tar.gz 
+cd kvlibsdk/
+make 
+sudo make install
+```
+
+Step 2: Clone our repository:
 ```bash
 # Clone the repository
 git clone https://github.com/iASL-Gifu/canedudev_rover_autoware.git
 cd ~/canedudev_rover_autoware
 ```
 
-step 2: Install dependencies for Autoware:  
+step 3: Install dependencies for Autoware:  
 
 If you have already installed the NVIDIA driver, it is recommended to edit the amd64.env file and specify the version of CUDA manually.
 ```bash
@@ -80,20 +103,26 @@ If you have already installed the NVIDIA driver, it is recommended to edit the a
 > [!WARNING]
 > This script includes the installation of NVIDIA drivers, CUDA, cudnn and TensorRT. Please be careful if you have already installed them, as there might be version conflicts.
 
-step 3: Construct the workspace and clone repositories
+step 4: Construct the workspace and clone repositories
 ```bash
 cd ~/cd canedudev_rover_autoware
 mkdir src
 vcs import src < autoware.repos
 ```
 
-step 4: Install dependencies of ROS2
+step 5: Install dependencies of ROS2
 ```bash
 source /opt/ros/humble/setup.bash
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 ```
 
-step 5: Build the workspace
+step 6: Build the workspace
 ```bash
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+```
+
+step 7: launch autoware
+```bash
+ros2 launch autoware_launch autoware.launch.xml map_path:=<absolute map path>
+
 ```
